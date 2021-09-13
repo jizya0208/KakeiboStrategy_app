@@ -19,13 +19,17 @@ Route::get('/', 'RecordController@showList')->name
 Route::get('/record/create', 'RecordController@showCreate')->name
 ('create');
 
-// 家計簿レコードの登録 
-Route::post('records/store', 'RecordController@exeStore')->name
+// 家計簿レコードの登録処理
+Route::post('expense/store', 'ExpenseController@exeStore')->name
 ('store');
 
-// 家計簿レコードの編集
+// 家計簿レコードの編集画面
 Route::get('/record/edit/{id}', 'RecordController@showEdit')->name
 ('edit');
+
+// 家計簿レコードの更新処理 
+Route::post('records/store', 'RecordController@exeStore')->name
+('store');
 
 // 家計簿レコードの削除
 Route::delete('records/delete/{id}', 'RecordController@exeDelete')->name
