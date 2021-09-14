@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Expense;
 use App\Models\Income;
 use App\Models\ExpenseType;
+use App\Models\ExpenseCategory;
 
 class RecordController extends Controller
 {
@@ -22,7 +23,8 @@ public function showList() {
 
 public function showCreate() {
     $expense_types = ExpenseType::all();
-    return view('record.form', ['expense_types' =>  $expense_types]);
+    $expense_categories = ExpenseCategory::all();
+    return view('record.form', ['expense_types' =>  $expense_types, 'expense_categories' =>  $expense_categories]);
 }
 
   /**

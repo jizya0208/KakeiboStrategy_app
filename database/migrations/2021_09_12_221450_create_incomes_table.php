@@ -19,7 +19,7 @@ class CreateIncomesTable extends Migration
 			$table->unsignedBigInteger('income_category_id');
 			$table->date('date');
 			$table->integer('amount');
-		    $table->string('remark', 100);
+		    $table->string('summary', 100);
             $table->timestamps();
         });
     }

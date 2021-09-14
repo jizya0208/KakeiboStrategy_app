@@ -13,7 +13,7 @@ class ExpenseRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class ExpenseRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'required',
+            'expense_type_id' => 'required',
+            'expense_category_id' => 'required',
+            'date' => 'required',
+            'amount' => 'required | min:1',
+            'summary'  => 'max:100',
         ];
     }
 }

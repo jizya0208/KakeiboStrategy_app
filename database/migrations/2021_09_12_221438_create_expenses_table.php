@@ -21,7 +21,7 @@ class CreateExpensesTable extends Migration
 			$table->date('date');
 			$table->integer('amount');
 			$table->integer('return');
-		    $table->string('remark', 100);
+		    $table->string('summary', 100);
             $table->timestamps();
         });
     }

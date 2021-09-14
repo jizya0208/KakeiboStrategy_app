@@ -15,7 +15,7 @@ class CreateExpenseTypesTable extends Migration
     {
         Schema::create('expense_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('name', ['消費', '浪費', '投資']);
+            $table->string('name');
             $table->timestamps();
         });
     }
