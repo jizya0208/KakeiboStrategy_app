@@ -8,11 +8,9 @@ use App\Http\Requests\ExpenseRequest;
 
 class ExpenseController extends Controller
 {
-
-
     /**
      * 支出レコードを登録する
-     * 
+     *
      * @return view
      */
     public function exeStore(ExpenseRequest $request) //FormRequestクラスを継承したExpenseRequestの利用により、フォームから送られた値をバリデーションチェックして受け取ることが出来る
@@ -31,6 +29,6 @@ class ExpenseController extends Controller
       }
 
       \Session::flash('err_msg', '支出を記録しました');
-      return redirect(route('records'));
-  }
+      return redirect(route('/'));
+    }
 }

@@ -22,6 +22,8 @@ class User extends Model
     [
         'name',
         'email',
-        'password'
+        'password',
+        'locked_flg',
+        'error_count',
     ];
 }

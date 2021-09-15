@@ -38,7 +38,7 @@
         </tr>
         @endforeach
 
-        <a href="/record/new">新しく記録する</a>
+        <a href="/record/create">新しく記録する</a>
     </table>
   </div>
 </div>

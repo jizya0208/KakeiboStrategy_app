@@ -16,7 +16,15 @@ class RecordController extends Controller
  *
  */
 public function showList() {
-    $expenses = Expense::all();
+    $expenses = Expense::whereYear('date', '=', '2021')
+        ->orderBy('date')
+        ->get()
+        ->groupBy(function ($row) {
+            return $row->date->format('m');
+        })
+        ->map(function ($month) {
+            return $month->sum('amount');
+    });
     $incomes = Income::all();
 	return view('record.list', ['expenses' => $expenses, 'incomes' => $incomes ]);
 }
@@ -81,7 +89,7 @@ public function showCreate() {
   {
       if (empty($id)) {
           \Session::flash('err_msg', 'データがありません。');
-          return redirect(route('blogs'));
+          return redirect(route('records'));
       }
 
       try {
@@ -92,6 +100,6 @@ public function showCreate() {
       }
 
       \Session::flash('err_msg', '削除しました。');
-      return redirect(route('blogs'));
+      return redirect(route('records'));
     }
 }

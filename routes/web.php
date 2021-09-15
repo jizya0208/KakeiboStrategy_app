@@ -20,11 +20,11 @@ Route::get('/record/create', 'RecordController@showCreate')->name
 ('create');
 
 // 支出レコードの登録処理
-Route::post('expense/store', 'ExpenseController@exeStore')->name
+Route::post('/expense/store', 'ExpenseController@exeStore')->name
 ('expenseStore');
 
 // 収入レコードの登録処理
-Route::post('income/store', 'IncomeController@exeStore')->name
+Route::post('/income/store', 'IncomeController@exeStore')->name
 ('incomeStore');
 
 // 家計簿レコードの編集画面
@@ -32,9 +32,9 @@ Route::get('/record/edit/{id}', 'RecordController@showEdit')->name
 ('edit');
 
 // 家計簿レコードの更新処理 
-Route::post('records/store', 'RecordController@exeStore')->name
-('store');
+Route::post('/records/store', 'RecordController@exeStore')->name
+('update');
 
 // 家計簿レコードの削除
-Route::delete('records/delete/{id}', 'RecordController@exeDelete')->name
+Route::delete('/records/delete/{id}', 'RecordController@exeDelete')->name
 ('delete');
