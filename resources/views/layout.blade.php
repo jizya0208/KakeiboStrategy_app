@@ -5,6 +5,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">　<!-- CSRF対策のための記述-->
     <title>@yield('title')</title>
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/signin.css">
     <script src="/js/app.js" defer></script>
 </head>
 <body>

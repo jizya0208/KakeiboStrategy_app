@@ -11,8 +11,14 @@
 |
 */
 
+Route::get('/', [AuthController::class,
+ 'showLogin'])->name('showLogin');
+
+// Route::post('login', 'AuthController@login')->name
+// ('login');
+
 // TOP画面を表示。「直近1ヵ月間の支出、収入の合計」「支出種別の円グラフ」「新規入力へのリンク」で構成。
-Route::get('/', 'RecordController@showList')->name
+Route::get('/records', 'RecordController@showList')->name
 ('records');
 
 // 新規レコード入力画面 (支出/収入でタブ切替)
