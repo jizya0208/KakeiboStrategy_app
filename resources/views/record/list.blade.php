@@ -18,6 +18,10 @@
             <li>名前: {{ Auth::user()->name }} </li>
             <li>メールアドレス: {{ Auth::user()->email }} </li>
         </ul>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button class="btn btn-danger">ログアウト</button>
+        </form>
         <h2>収支一覧</h2>
         @if (session('err_msg'))
             <p class="text-danger">
