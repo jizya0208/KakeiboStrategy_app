@@ -11,7 +11,7 @@ class ExpenseCategory extends Model
 
     // テーブルのリレーション
     public function expenses(){
-        return $this->hasMany('App\Models\Expense');
+        return $this->hasMany('App\Expense');
     }
 
     // 可変項目

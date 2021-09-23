@@ -11,7 +11,7 @@ class ExpenseType extends Model
 
     // テーブルのリレーション
     public function expenses(){
-        return $this->hasMany('App\Models\Expense');
+        return $this->hasMany('App\Expense');
     }
 
     // 属性：ブラックリスト

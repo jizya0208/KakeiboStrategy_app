@@ -11,13 +11,13 @@ class Expense extends Model
 
     // テーブルのリレーション
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\User');
     }
     public function expense_type(){
-        return $this->belongsTo('App\Models\ExpenseType');
+        return $this->belongsTo('App\ExpenseType');
     }
     public function expense_category(){
-        return $this->belongsTo('App\Models\ExpenseCategory');
+        return $this->belongsTo('App\ExpenseCategory');
     }
 
     // 可変項目

@@ -16,18 +16,12 @@
             </ul>
         </div>
       @endif
+      
+      <x-alert type="success" :session="session('logout_success')"/>
 
-      @if (session('login_error'))
-        <div class="alert alert-danger">
-            {{ session('login_error') }}
-        </div>
-      @endif
+      <x-alert type="danger" :session="session('login_error')"/>
+      
 
-      @if (session('logout'))
-        <div class="alert alert-danger">
-            {{ session('logout') }}
-        </div>
-      @endif
       <label for="inputEmail" class="sr-only">Email address</label>
       <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>

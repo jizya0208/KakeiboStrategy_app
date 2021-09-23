@@ -11,7 +11,7 @@ class IncomeCategory extends Model
 
     // テーブルのリレーション
     public function expenses(){
-        return $this->hasMany('App\Models\Income');
+        return $this->hasMany('App\Income');
     }
 
     // 可変項目

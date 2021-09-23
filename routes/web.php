@@ -23,7 +23,7 @@ Route::middleware(['guest'])->group(function () {
 // ログイン後の処理
 Route::middleware(['auth'])->group(function () {
   // TOP画面を表示。「直近1ヵ月間の支出、収入の合計」「支出種別の円グラフ」「新規入力へのリンク」で構成。
-  Route::get('/records', 'RecordController@showList')->name
+  Route::get('/records', 'UserController@showList')->name
   ('records');
 
   Route::post('logout', [AuthController::class, 'logout'])->name('logout');

@@ -16,15 +16,16 @@ class RecordController extends Controller
  *
  */
 public function showList() {
-    $expenses = Expense::whereYear('date', '=', '2021')
-        ->orderBy('date')
-        ->get()
-        ->groupBy(function ($row) {
-            return $row->date->format('m');
-        })
-        ->map(function ($month) {
-            return $month->sum('amount');
-    });
+    $expenses = Expense::all();    // 全てのデータが取得できる
+    // $expenses = Expense::whereYear('date', '=', '2021')
+    //     ->orderBy('date')
+    //     ->get()
+    //     ->groupBy(function ($row) {
+    //         return $row->date->format('m');
+    //     })
+    //     ->map(function ($month) {
+    //         return $month->sum('amount');
+    // });
     $incomes = Income::all();
 	return view('record.list', ['expenses' => $expenses, 'incomes' => $incomes ]);
 }

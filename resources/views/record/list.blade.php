@@ -9,11 +9,12 @@
 @section('content')
     <div class="row">
     <div class="col-md-10 col-md-offset-2">
-         @if (session('login_success'))
+        @if (session('login_success'))
             <div class="alert alert-success">
                 {{ session('login_success') }}
             </div>
         @endif
+        <x-alert type="success" :session="session('login_success')"/>
         <ul>
             <li>名前: {{ Auth::user()->name }} </li>
             <li>メールアドレス: {{ Auth::user()->email }} </li>
@@ -23,6 +24,9 @@
             <button class="btn btn-danger">ログアウト</button>
         </form>
         <h2>収支一覧</h2>
+
+        {{ dd($expenses) }}
+
         @if (session('err_msg'))
             <p class="text-danger">
                 {{ session('err_msg') }}
@@ -37,6 +41,7 @@
                 <th>収入</th>
                 <th>編集削除</th>
             </tr>
+            {{ dd($expenses)}}
             @foreach($expenses as $record)
             <tr>
                 <td>{{ $record->date }}</td>

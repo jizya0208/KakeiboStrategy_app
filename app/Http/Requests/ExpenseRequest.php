@@ -24,11 +24,9 @@ class ExpenseRequest extends FormRequest
     public function rules()
     {
         return [
-            'expense_type_id' => 'required',
-            'expense_category_id' => 'required',
-            'date' => 'required',
-            'amount' => 'required | min:1',
-            'summary'  => 'max:100'
+            'date' => 'required|date', //入力必須、日付
+            'amount' => 'required|numeric|min:1', //入力必須、数値で1以上
+            'summary'  => 'max:100' //100文字以内
         ];
     }
 }
