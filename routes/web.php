@@ -36,20 +36,20 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/expense/store', 'ExpenseController@exeStore')->name
   ('expenseStore');
 
-  // 収入レコードの登録処理
-  Route::post('/income/store', 'IncomeController@exeStore')->name
-  ('incomeStore');
+  // // 収入レコードの登録処理
+  // Route::post('/income/store', 'IncomeController@exeStore')->name
+  // ('incomeStore');
 
-  // 家計簿レコードの編集画面
-  Route::get('/record/edit/{id}', 'RecordController@showEdit')->name
-  ('edit');
+  // // 家計簿レコードの編集画面
+  // Route::get('/record/edit/{id}', 'RecordController@showEdit')->name
+  // ('edit');
 
-  // 家計簿レコードの更新処理
-  Route::post('/records/store', 'RecordController@exeStore')->name
-  ('update');
+  // // 家計簿レコードの更新処理
+  // Route::post('/records/store', 'RecordController@exeStore')->name
+  // ('update');
 
-  // 家計簿レコードの削除
-  Route::delete('/records/delete/{id}', 'RecordController@exeDelete')->name
-  ('delete');
+  // // 家計簿レコードの削除
+  // Route::delete('/records/delete/{id}', 'RecordController@exeDelete')->name
+  // ('delete');
 });
 

@@ -29,6 +29,6 @@ class Expense extends Model
         'date',
         'amount',
         'return',
-        'remark'
+        'summary'
     ];
 }

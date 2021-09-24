@@ -13,11 +13,12 @@ use App\Models\ExpenseCategory;
 class UserController extends Controller
 {
     /**
+    * @param int $id
     * $userによる収支レコードを取得
     * 月ごとの合計支出、合計収入を表示
     *
     */
-    public function showList(User $user)
+    public function showList()
     {
         $user = Auth::user();
         $expenses = $user->expenses;
