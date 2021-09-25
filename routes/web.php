@@ -44,16 +44,13 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/expense/update', 'ExpenseController@exeUpdate')->name
   ('expenseUpdate');
 
-
+  // 支出レコードの削除
+  Route::post('/expense/delete/{id}', 'ExpenseController@exeDelete')->name
+  ('expenseDelete');
 
   // // 収入レコードの登録処理
   // Route::post('/income/store', 'IncomeController@exeStore')->name
   // ('incomeStore');
 
-
-
-  // // 家計簿レコードの削除
-  // Route::delete('/records/delete/{id}', 'RecordController@exeDelete')->name
-  // ('delete');
 });
 

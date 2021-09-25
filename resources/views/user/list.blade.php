@@ -50,7 +50,10 @@
             <td>
               <button type="button" class="btn btn-primary" onclick="location.href='/expense/edit/{{ $expense->id }}'">編集</button>
             </td>
-            <td></td>
+            <form method="post" action="{{ route('expenseDelete', $expense->id) }}" onSubmit="return checkDelete()">
+            @csrf
+            <td><button type="submit" class="btn btn-danger" onclick=>削除</button></td>
+            </form>
           </tr>
           @endforeach
 

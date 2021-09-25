@@ -86,4 +86,27 @@ class ExpenseController extends Controller
       \Session::flash('err_msg', '支出を更新しました');
       return redirect(route('records'));
     }
+
+    /**
+     * 支出レコード削除
+     * @param int $id
+     * @return view
+     */
+    public function exeDelete ($id)
+    {
+        if (empty($id)) {
+            \Session::flash('err_msg', 'データがありません。');
+            return redirect(route('records'));
+        }
+
+        try {
+            // 支出レコードを削除
+            Expense::destroy($id);
+        } catch(\Throwable $e) {
+            abort(500);
+        }
+
+        \Session::flash('err_msg', '削除しました。');
+        return redirect(route('records'));
+    }
 }
