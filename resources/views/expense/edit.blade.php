@@ -1,18 +1,19 @@
 @extends('layout')
-@section('title', '家計簿レコード記録')
+@section('title', '支出レコード編集')
 @section('content')
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <h2>収支レコード記録フォーム</h2>
-        <form method="POST" action="{{ route('expenseStore') }}" onSubmit="return checkSubmit()">
+        <h2>支出レコード編集</h2>
+        <form method="POST" action="{{ route('expenseUpdate') }}" onSubmit="return checkSubmit()">
         @csrf <!-- CSRF対策のための記述-->
              <div class="form-group">
+                <input type="hidden" name="id" value="{{ $expense->id }}">
                 <label for="date">日付</label>
                 <input
                     id="date"
                     name="date"
                     class="form-control"
-                    value="{{ old('date') }}"
+                    value="{{ $expense->date }}"
                     type="date"
                 >
                 @if ($errors->has('date'))
@@ -29,7 +30,7 @@
                     id="amount"
                     name="amount"
                     class="form-control"
-                    value="{{ old('amount') }}"
+                    value="{{ $expense->amount }}"
                 ></input>
                 @if ($errors->has('amount'))
                     <div class="text-danger">
@@ -42,7 +43,7 @@
               <label for="expense_type_id">支出分類</label>
               <select name="expense_type_id" class="custom-select form-control">
                 @foreach($expense_types as $expense_type)
-                    <option value="{{ $expense_type->id }}" {{ old('expense_type', $expense->expense_type_id ?? '') == $expense_type->id ? 'selected' : '' }}>
+                    <option value="{{ $expense->expense_type_id }}" {{ old('expense_type', $expense->expense_type_id ?? '') == $expense_type->id ? 'selected' : '' }}>
                       {{ $expense_type->name }}
                     </option>
                 @endforeach
@@ -76,7 +77,7 @@
                     id="summary"
                     name="summary"
                     class="form-control"
-                >{{ old('summary') }}</textarea>
+                >{{ $expense->summary }}</textarea>
                 @if ($errors->has('summary'))
                     <div class="text-danger">
                         {{ $errors->first('summary') }}
@@ -89,7 +90,7 @@
                     キャンセル
                 </a>
                 <button type="submit" class="btn btn-primary">
-                    記録する
+                    更新する
                 </button>
             </div>
         </form>
@@ -97,7 +98,7 @@
 </div>
 <script>
 function checkSubmit(){
-if(window.confirm('送信してよろしいですか？')){
+if(window.confirm('更新してよろしいですか？')){
     return true;
 } else {
     return false;

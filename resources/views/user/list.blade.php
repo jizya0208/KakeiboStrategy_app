@@ -32,13 +32,27 @@
       @endif
       <table class="table table-striped">
           <tr>
-              <th>日付</th>
-              <th>費目</th>
-              <th>摘要</th>
-              <th>支出</th>
-              <th>収入</th>
-              <th>編集削除</th>
+            <th>日付</th>
+            <th>費目</th>
+            <th>摘要</th>
+            <th>支出</th>
+            <th>収入</th>
+            <th>編集</th>
+            <th>削除</th>
           </tr>
+          @foreach($expenses as $expense)
+          <tr>
+            <td>{{ $expense->date }}</td>
+            <td>{{ $expense_category[$expense->expense_category_id]->name }}</td> <!--REVIEW: 冗長-->
+            <td>{{ $expense->summary }}</td>
+            <td>{{ $expense->amount }}</td>
+            <td></td>
+            <td>
+              <button type="button" class="btn btn-primary" onclick="location.href='/expense/edit/{{ $expense->id }}'">編集</button>
+            </td>
+            <td></td>
+          </tr>
+          @endforeach
 
 
           <a href="/record/create">新しく記録する</a>

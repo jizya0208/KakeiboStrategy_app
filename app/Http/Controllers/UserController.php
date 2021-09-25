@@ -21,8 +21,10 @@ class UserController extends Controller
     public function showList()
     {
         $user = Auth::user();
-        $expenses = $user->expenses;
+        $expenses = Expense::where('user_id', $user->id)->get();
+        $expense_category = ExpenseCategory::all();
+        $expense_type = ExpenseType::all();
         $incomes = $user->incomes;
-        return view('user.list', ['user' => $user, 'expenses' => $expenses, 'incomes' => $incomes]);
+        return view('user.list', ['user' => $user, 'expenses' => $expenses, 'incomes' => $incomes, 'expense_category' => $expense_category,  'expense_type' => $expense_type]);
     }
 }

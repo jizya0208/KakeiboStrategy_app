@@ -36,17 +36,21 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/expense/store', 'ExpenseController@exeStore')->name
   ('expenseStore');
 
+  // 支出レコードの編集画面
+  Route::get('/expense/edit/{id}', 'ExpenseController@showEdit')->name
+  ('expenseEdit');
+
+  // 支出レコードの更新処理
+  Route::post('/expense/update', 'ExpenseController@exeUpdate')->name
+  ('expenseUpdate');
+
+
+
   // // 収入レコードの登録処理
   // Route::post('/income/store', 'IncomeController@exeStore')->name
   // ('incomeStore');
 
-  // // 家計簿レコードの編集画面
-  // Route::get('/record/edit/{id}', 'RecordController@showEdit')->name
-  // ('edit');
 
-  // // 家計簿レコードの更新処理
-  // Route::post('/records/store', 'RecordController@exeStore')->name
-  // ('update');
 
   // // 家計簿レコードの削除
   // Route::delete('/records/delete/{id}', 'RecordController@exeDelete')->name
