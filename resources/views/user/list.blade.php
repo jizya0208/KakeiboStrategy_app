@@ -23,7 +23,7 @@
           @csrf
           <button class="btn btn-danger">ログアウト</button>
       </form>
-      <h2>収支一覧</h2>
+      <h4>収支一覧</h4>
 
       @if (session('err_msg'))
           <p class="text-danger">
@@ -60,6 +60,17 @@
 
           <a href="/record/create">新しく記録する</a>
       </table>
+
+      <h4>月別収支</h4>
+        <div>
+          消費{{ $subtotal[0]->total_amount }}
+        </div>
+        <div>
+          浪費{{ $subtotal[1]->total_amount }}
+        </div>
+        <div>
+          投資{{ $subtotal[2]->total_amount }}
+        </div>
     </div>
   </div>
   <script>
